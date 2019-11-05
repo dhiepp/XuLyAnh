@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } else {
-            Toast.makeText(this, "Bạn chưa chọn ảnh!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Bạn chưa chọn ảnh!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressWarnings("deprecation")
     private File createImageFile() throws IOException {
         //Đặt tên ảnh theo thời gian
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());

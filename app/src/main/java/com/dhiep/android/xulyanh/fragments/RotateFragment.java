@@ -20,8 +20,6 @@ public class RotateFragment extends Fragment implements View.OnClickListener {
     private EditActivity editActivity;
     private Bitmap editBitmap;
 
-    private Button undo;
-    private Button save;
     private Button rotateLeft;
     private Button rotateRight;
     private Button flipH;
@@ -36,15 +34,11 @@ public class RotateFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_rotate, container, false);
 
-        undo = root.findViewById(R.id.rotate_undo);
-        save = root.findViewById(R.id.rotate_save);
         rotateLeft = root.findViewById(R.id.rotate_left);
         rotateRight = root.findViewById(R.id.rotate_right);
         flipH = root.findViewById(R.id.flip_horizontally);
         flipV = root.findViewById(R.id.flip_vertically);
 
-        undo.setOnClickListener(this);
-        save.setOnClickListener(this);
         rotateLeft.setOnClickListener(this);
         rotateRight.setOnClickListener(this);
         flipH.setOnClickListener(this);
@@ -61,13 +55,6 @@ public class RotateFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.equals(undo)) {
-            editBitmap = editActivity.getOriginalBitmap();
-            editActivity.resetBitmap();
-        }
-        if (v.equals(save)) {
-
-        }
         if (v.equals(rotateLeft)) {
             editBitmap = BitmapProcessing.rotate(editBitmap,-90);
             editActivity.setBitmap(editBitmap);

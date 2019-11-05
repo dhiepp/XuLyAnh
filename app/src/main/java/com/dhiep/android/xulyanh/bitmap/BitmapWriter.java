@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.os.AsyncTask;
 
+import com.dhiep.android.xulyanh.EditActivity;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,9 +16,12 @@ public class BitmapWriter extends AsyncTask<Void, Void, Boolean> {
 	private File file;
 	private Bitmap bitmap;
 
-	public BitmapWriter(File input_file, Bitmap input_bitmap) {
+	private EditActivity editActivity;
+
+	public BitmapWriter(File input_file, Bitmap input_bitmap, EditActivity editActivity) {
 		file = input_file;
 		bitmap = input_bitmap;
+		this.editActivity = editActivity;
 	}
 
 	@Override
@@ -41,5 +46,7 @@ public class BitmapWriter extends AsyncTask<Void, Void, Boolean> {
 			bitmap.recycle();
 			bitmap = null;
 		} catch (Exception e) {}
+
+		editActivity.writeBitmapCompleted();
 	}
 }

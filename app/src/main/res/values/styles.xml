@@ -8,5 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TabStyle">
+        <item name="tabTextAppearance">@style/TabText</item>
+        <!--        <item name="tabSelectedTextColor">@android:color/white</item>-->
+        <item name="tabIndicatorGravity">top</item>
+        <item name="tabIndicatorColor">@color/colorAccent</item>
+        <item name="tabIndicatorHeight">4dp</item>
+    </style>
+    <style name="TabText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
     
 </resources>

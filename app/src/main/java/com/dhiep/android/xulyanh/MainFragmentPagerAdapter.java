@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.dhiep.android.xulyanh.EditActivity;
 import com.dhiep.android.xulyanh.custom.ObjectAtPositionInterface;
 import com.dhiep.android.xulyanh.fragments.AdjustFragment;
-import com.dhiep.android.xulyanh.fragments.ColorFragment;
 import com.dhiep.android.xulyanh.fragments.FilterFragment;
 import com.dhiep.android.xulyanh.fragments.RotateFragment;
 
@@ -19,16 +17,18 @@ public class MainFragmentPagerAdapter extends FragmentPagerAdapter implements Ob
     ArrayList<Fragment> fragments = new ArrayList<>();
     ArrayList<String> titles = new ArrayList<>();
 
-    public MainFragmentPagerAdapter(@NonNull FragmentManager fm, EditActivity activity) {
+    public MainFragmentPagerAdapter(@NonNull FragmentManager fm) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        fragments.add(new RotateFragment(activity));
-        fragments.add(new AdjustFragment(activity));
-        fragments.add(new ColorFragment(activity));
-        fragments.add(new FilterFragment(activity));
-        titles.add("Xoay ảnh");
-        titles.add("Điều chỉnh");
-        titles.add("Màu sắc");
-        titles.add("Bộ lọc");
+    }
+
+    public void addFragment(Fragment fragment, String title) {
+        fragments.add(fragment);
+        titles.add(title);
+        notifyDataSetChanged();
+    }
+
+    public void resetAdjustments() {
+        ((AdjustFragment)fragments.get(1)).reset();
     }
 
     @NonNull
