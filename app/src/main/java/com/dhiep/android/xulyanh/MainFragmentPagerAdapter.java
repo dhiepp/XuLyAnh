@@ -29,6 +29,8 @@ public class MainFragmentPagerAdapter extends FragmentPagerAdapter implements Ob
 
     public void resetAdjustments() {
         ((AdjustFragment)fragments.get(1)).reset();
+        fragments.get(0).onResume();
+        fragments.get(2).onResume();
     }
 
     @NonNull

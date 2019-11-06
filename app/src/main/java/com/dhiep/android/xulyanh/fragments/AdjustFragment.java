@@ -64,6 +64,8 @@ public class AdjustFragment extends Fragment implements SeekBar.OnSeekBarChangeL
     }
 
     public void reset() {
+        saveBtn.setText("Đã lưu");
+
         brightness.setProgress(200);
         contrast.setProgress(100);
         saturation.setProgress(100);
